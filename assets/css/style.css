@@ -1,5 +1,5 @@
 /* ==========================================
-   1. PALET WARNA GAME BAJAK LAUT & KRAKEN
+   1. PALET WARNA & VARIABEL
    ========================================== */
 :root {
   --pirate-gold: #ffd700;
@@ -14,32 +14,15 @@
   --text-dark: #201108;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--text-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background-color: var(--ocean-dark);
-  position: relative;
-  min-height: 100vh;
-}
-
 /* ==========================================
    2. BACKGROUND BADAI LAUT & PETIR (ATMOSPHERIC)
    ========================================== */
 .ocean-storm-bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -3;
+  z-index: -30;
   background: 
     radial-gradient(circle at 50% 20%, rgba(106, 27, 154, 0.4) 0%, transparent 60%),
     linear-gradient(to bottom, #0d1b2a 0%, #1b263b 40%, #0d1b2a 100%);
@@ -47,11 +30,10 @@ body {
 
 .lightning-flash {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2;
+  z-index: -20;
   background: rgba(255, 255, 255, 0.15);
   pointer-events: none;
   opacity: 0;
@@ -65,32 +47,20 @@ body {
 }
 
 /* ==========================================
-   3. KAPAL BAJAK LAUT & GELOMBANG OMBAK
+   3. KAPAL BAJAK LAUT & OMBAK
    ========================================== */
 .pirate-ship-wrapper {
-  position: fixed;
-  top: 15%;
-  left: 5%;
-  z-index: -1;
-  text-align: center;
-  pointer-events: none;
   animation: floatShip 8s ease-in-out infinite;
+  text-align: center;
 }
 
 .pirate-ship {
-  font-size: 80px;
-  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
-}
-
-.ship-waves {
-  font-size: 20px;
-  margin-top: -20px;
-  opacity: 0.8;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.8));
 }
 
 @keyframes floatShip {
   0% { transform: translateY(0px) rotate(-3deg); }
-  50% { transform: translateY(-20px) rotate(4deg); }
+  50% { transform: translateY(-16px) rotate(4deg); }
   100% { transform: translateY(0px) rotate(-3deg); }
 }
 
@@ -98,285 +68,71 @@ body {
    4. TENTAKEL KRAKEN RAKSASA (ANIMATED)
    ========================================== */
 .kraken-tentacle {
-  position: fixed;
-  z-index: -1;
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.9));
-  pointer-events: none;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9));
+  user-select: none;
 }
 
 .tentacle-left-1 {
-  bottom: -20px;
-  left: 2%;
-  font-size: 110px;
   animation: krakenMoveLeft 5s ease-in-out infinite alternate;
 }
 
 .tentacle-left-2 {
-  top: 40%;
-  left: -20px;
-  font-size: 90px;
   animation: krakenMoveLeft2 6s ease-in-out infinite alternate;
 }
 
 .tentacle-right-1 {
-  bottom: -10px;
-  right: 2%;
-  font-size: 120px;
   animation: krakenMoveRight 5.5s ease-in-out infinite alternate;
 }
 
 .tentacle-right-2 {
-  top: 35%;
-  right: -20px;
-  font-size: 85px;
   animation: krakenMoveRight2 7s ease-in-out infinite alternate;
 }
 
 @keyframes krakenMoveLeft {
   0% { transform: translateY(0) rotate(-15deg) scale(1); }
-  100% { transform: translateY(-40px) rotate(10deg) scale(1.15); }
+  100% { transform: translateY(-25px) rotate(8deg) scale(1.1); }
 }
 
 @keyframes krakenMoveLeft2 {
-  0% { transform: translateX(0) rotate(20deg); }
-  100% { transform: translateX(30px) rotate(40deg); }
+  0% { transform: translateX(0) rotate(15deg); }
+  100% { transform: translateX(20px) rotate(30deg); }
 }
 
 @keyframes krakenMoveRight {
   0% { transform: translateY(0) rotate(15deg) scale(1); }
-  100% { transform: translateY(-50px) rotate(-10deg) scale(1.2); }
+  100% { transform: translateY(-30px) rotate(-8deg) scale(1.1); }
 }
 
 @keyframes krakenMoveRight2 {
-  0% { transform: translateX(0) rotate(-20deg); }
-  100% { transform: translateX(-30px) rotate(-35deg); }
+  0% { transform: translateX(0) rotate(-15deg); }
+  100% { transform: translateX(-20px) rotate(-28deg); }
 }
 
 /* ==========================================
    5. KOIN EMAS & HARTA KARUN MELAYANG
    ========================================== */
 .floating-coin {
-  position: fixed;
-  z-index: -1;
-  font-size: 32px;
   filter: drop-shadow(0 0 10px var(--pirate-gold));
-  pointer-events: none;
+  user-select: none;
   animation: coinFloat 4s ease-in-out infinite alternate;
 }
 
-.coin-1 { top: 25%; left: 22%; animation-delay: 0s; }
-.coin-2 { top: 70%; left: 18%; animation-delay: 1s; }
-.coin-3 { top: 30%; right: 20%; animation-delay: 2s; }
-.coin-4 { top: 75%; right: 22%; animation-delay: 1.5s; }
+.coin-1 { animation-delay: 0s; }
+.coin-2 { animation-delay: 1s; }
+.coin-3 { animation-delay: 2s; }
+.coin-4 { animation-delay: 1.5s; }
 
 @keyframes coinFloat {
   0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-25px) rotate(20deg); }
+  100% { transform: translateY(-18px) rotate(15deg); }
 }
 
 /* ==========================================
-   6. NAVBAR & UI GAME STATUS BAR
+   6. RODA KEMUDI & KARTU KORNER
    ========================================== */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 4%;
-  background: linear-gradient(to bottom, #3a1e12, #211008);
-  border-bottom: 4px solid var(--pirate-gold);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.skull-badge {
-  font-size: 22px;
-  background: var(--ruby-red);
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 2px solid var(--pirate-gold);
-}
-
-.brand-text {
-  font-family: 'Pirata One', cursive;
-  font-size: 24px;
-  color: #ffffff;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0px #000, 0 0 10px var(--pirate-gold);
-}
-
-.brand-text span {
-  color: var(--pirate-gold);
-}
-
-/* GAME UI STATUS BAR (HP/MP) */
-.game-status-bar {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: rgba(0,0,0,0.5);
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 2px solid var(--pirate-gold);
-}
-
-.status-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.status-icon {
-  font-size: 14px;
-}
-
-.bar-bg {
-  width: 70px;
-  height: 10px;
-  background: #1a1a1a;
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid var(--pirate-gold);
-}
-
-.bar-fill {
-  height: 100%;
-}
-
-.hp-bar {
-  width: 90%;
-  background: linear-gradient(to right, #ff4d4d, #cc0000);
-}
-
-.mp-bar {
-  width: 80%;
-  background: linear-gradient(to right, #4da6ff, #0066cc);
-}
-
-.level-badge {
-  background: var(--pirate-gold);
-  color: var(--wood-dark);
-  font-family: 'Pirata One', cursive;
-  font-size: 14px;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: var(--parchment);
-  text-decoration: none;
-  font-family: 'Pirata One', cursive;
-  font-size: 17px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  text-shadow: 2px 2px 0 #000;
-}
-
-.nav-links a:hover {
-  color: var(--pirate-gold);
-  text-shadow: 0 0 10px var(--pirate-gold);
-}
-
-/* ==========================================
-   7. HERO LOGO 3D (MIRIP POSTER GAME)
-   ========================================== */
-.game-hero {
-  text-align: center;
-  padding: 35px 20px 10px 20px;
-}
-
-.logo-box {
-  display: inline-block;
-  background: linear-gradient(135deg, #8b1e1e 0%, #3d0909 100%);
-  border: 5px solid var(--pirate-gold);
-  outline: 4px solid #210a0a;
-  border-radius: 20px;
-  padding: 20px 45px;
-  box-shadow: 
-    0 15px 35px rgba(0,0,0,0.9),
-    inset 0 0 20px rgba(255, 215, 0, 0.5);
-  position: relative;
-  transform: perspective(500px) rotateX(4deg);
-}
-
-.badge-skull {
-  font-size: 36px;
-  margin-bottom: -10px;
-}
-
-.hero-title {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 38px;
-  font-weight: 900;
-  color: var(--pirate-gold);
-  text-shadow: 
-    3px 3px 0px #000,
-    -2px -2px 0px #000,
-    0 0 20px var(--gold-glow);
-  letter-spacing: 3px;
-}
-
-.hero-subtitle {
-  font-family: 'Pirata One', cursive;
-  font-size: 19px;
-  color: #ffffff;
-  background: #211008;
-  padding: 4px 16px;
-  border-radius: 12px;
-  border: 2px solid var(--pirate-gold);
-  margin-top: 5px;
-  display: inline-block;
-  letter-spacing: 2px;
-}
-
-.crossed-swords {
-  font-size: 22px;
-  margin-top: 5px;
-}
-
-/* ==========================================
-   8. LAYOUT UTAMA & KARTU PROFIL
-   ========================================== */
-.layout-wrapper {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 30px;
-}
-
-.profile-sidebar {
-  position: sticky;
-  top: 85px;
-  height: fit-content;
-  background: linear-gradient(to bottom, #ebd1a0, #d1af73);
-  border: 5px solid var(--wood-dark);
-  outline: 3px solid var(--pirate-gold);
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
-}
-
 .ship-wheel-icon {
-  font-size: 30px;
-  margin-bottom: 5px;
-  animation: spinWheel 20s linear infinite;
+  animation: spinWheel 25s linear infinite;
+  display: inline-block;
 }
 
 @keyframes spinWheel {
@@ -384,118 +140,14 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.avatar-wrapper {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-.avatar-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--wood-dark);
-  box-shadow: 0 0 20px var(--pirate-gold);
-}
-
-.status-badge {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--ruby-red);
-  color: #ffffff;
-  font-family: 'Pirata One', cursive;
-  font-size: 14px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  border: 2px solid var(--pirate-gold);
-  white-space: nowrap;
-}
-
-.profile-name {
-  font-family: 'Pirata One', cursive;
-  font-size: 28px;
-  color: var(--wood-dark);
-  letter-spacing: 1px;
-}
-
-.profile-title {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--ruby-red);
-}
-
-.pirate-equipment {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 22px;
-  margin: 12px 0;
-  background: rgba(0,0,0,0.08);
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.wood-divider {
-  height: 4px;
-  background: linear-gradient(to right, transparent, var(--wood-dark), transparent);
-  margin: 15px 0;
-}
-
-.contact-quick {
-  text-align: left;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--wood-dark);
-}
-
-.treasure-chest-box {
-  margin-top: 15px;
-  background: var(--wood-dark);
-  color: var(--pirate-gold);
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid var(--pirate-gold);
-}
-
-.chest-icon {
-  font-size: 24px;
-  display: block;
-}
-
-.treasure-chest-box p {
-  font-family: 'Pirata One', cursive;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-/* ==========================================
-   9. PIRATE CARDS (UKIRAN KAYU & PERGAMEN)
-   ========================================== */
-.content-area {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.pirate-card {
-  background: linear-gradient(to bottom, #f7ebcf, #e2cca1);
-  border: 5px solid var(--wood-dark);
-  outline: 3px solid var(--pirate-gold);
-  border-radius: 16px;
-  padding: 30px;
-  position: relative;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
-}
-
+/* Hiasan Sudut Kartu Pergamena Bajak Laut */
 .card-corner {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background: var(--pirate-gold);
   border: 2px solid var(--wood-dark);
+  pointer-events: none;
 }
 
 .corner-tl { top: -2px; left: -2px; border-radius: 4px 0 0 0; }
@@ -503,103 +155,65 @@ body {
 .corner-bl { bottom: -2px; left: -2px; border-radius: 0 0 0 4px; }
 .corner-br { bottom: -2px; right: -2px; border-radius: 0 0 4px 0; }
 
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  border-bottom: 3px dashed var(--parchment-border);
-  padding-bottom: 10px;
-}
-
-.section-header h2 {
-  font-family: 'Pirata One', cursive;
-  font-size: 26px;
-  color: var(--wood-dark);
-}
-
-.icon-title {
-  font-size: 26px;
-}
-
-.about-text {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-
-.skills-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
+/* ==========================================
+   7. SKILL PILL (RESPONSIVE & WRAPPABLE)
+   ========================================== */
 .skill-pill {
   background: var(--wood-dark);
   color: var(--pirate-gold);
   border: 2px solid var(--pirate-gold);
-  font-size: 13px;
-  font-weight: 800;
-  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
   border-radius: 8px;
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.4);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  word-break: break-word;
+  white-space: normal;
+  text-align: left;
 }
 
 .skill-pill:hover {
   background: var(--ruby-red);
   color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
 }
 
-/* FORM INPUT GAYA BAJAK LAUT */
-.input-group {
-  margin-bottom: 15px;
+/* ==========================================
+   8. MEDIA QUERIES (OPTIMASI SEMUA LAYAR)
+   ========================================== */
+
+/* Layar Ekstra Kecil (Mobile < 480px) */
+@media (max-width: 480px) {
+  .skill-pill {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  .card-corner {
+    width: 10px;
+    height: 10px;
+  }
 }
 
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  border: 3px solid var(--wood-dark);
-  border-radius: 8px;
-  padding: 12px;
-  font-family: inherit;
-  font-weight: 700;
-  color: var(--wood-dark);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.submit-btn {
-  width: 100%;
-  background: linear-gradient(to bottom, #b82323, #780f0f);
-  color: var(--pirate-gold);
-  border: 3px solid var(--pirate-gold);
-  padding: 14px;
-  border-radius: 10px;
-  font-family: 'Pirata One', cursive;
-  font-size: 20px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  box-shadow: 0 6px 0px #3d0909;
+::-webkit-scrollbar-track {
+  background: var(--ocean-dark);
 }
-
-.submit-btn:hover {
-  background: linear-gradient(to bottom, #d92b2b, #9e1b1b);
+::-webkit-scrollbar-thumb {
+  background: var(--wood-light);
+  border: 1px solid var(--pirate-gold);
+  border-radius: 4px;
 }
-
-.sound-toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  background: var(--wood-dark);
-  color: var(--pirate-gold);
-  border: 3px solid var(--pirate-gold);
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-family: 'Pirata One', cursive;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pirate-gold);
 }

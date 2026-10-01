@@ -1,240 +1,429 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Micro Pirates & The Kraken CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kapten Zahra - Micro Pirates & The Kraken CV</title>
+  <meta name="description" content="Curriculum Vitae Kapten Azzahra Zahirah Maspriana - Penjelajah Samudra & Pengembang Digital PENS">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Pirata+One&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'pirate-gold': '#ffd700',
+            'gold-glow': '#ffaa00',
+            'wood-dark': '#2b1810',
+            'wood-light': '#4a2d1d',
+            'parchment': '#f7ebcf',
+            'parchment-dark': '#e2cca1',
+            'parchment-border': '#8b5a2b',
+            'kraken-purple': '#6a1b9a',
+            'ruby-red': '#a81c1c',
+            'ruby-dark': '#780f0f',
+            'ocean-dark': '#08121e',
+            'ocean-mid': '#0d1b2a',
+            'ocean-light': '#1b263b',
+          },
+          fontFamily: {
+            pirate: ['"Pirata One"', 'cursive', 'sans-serif'],
+            cinzel: ['"Cinzel Decorative"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'pirate-gold': '0 0 15px rgba(255, 215, 0, 0.45)',
+            'pirate-card': '0 12px 30px rgba(0, 0, 0, 0.85)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Game Atmosphere & Keyframe Animations -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Pirata+One&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-ocean-dark text-[#201108] font-sans relative min-h-screen overflow-x-hidden selection:bg-pirate-gold selection:text-wood-dark">
 
-  <!-- Efek Atmosphere Badai Laut & Petir -->
-  <div class="lightning-flash"></div>
-  <div class="ocean-storm-bg"></div>
+  <!-- Efek Atmosphere Badai Laut & Petir (Layered Background) -->
+  <div class="lightning-flash fixed inset-0 w-full h-full pointer-events-none -z-20"></div>
+  <div class="ocean-storm-bg fixed inset-0 w-full h-full pointer-events-none -z-30"></div>
 
-  <!-- Kapal Bajak Laut Bergoyang di Atas Gelombang -->
-  <div class="pirate-ship-wrapper">
-    <div class="pirate-ship">⛵</div>
-    <div class="ship-waves">🌊🌊🌊</div>
+  <!-- Kapal Bajak Laut Bergoyang -->
+  <div class="pirate-ship-wrapper fixed top-24 left-2 sm:left-6 md:left-12 pointer-events-none -z-10 opacity-40 md:opacity-80">
+    <div class="pirate-ship text-4xl sm:text-6xl md:text-7xl">⛵</div>
+    <div class="ship-waves text-xs sm:text-base -mt-2 opacity-75">🌊🌊🌊</div>
   </div>
 
-  <!-- Tentakel Kraken Raksasa (Kiri & Kanan) -->
-  <div class="kraken-tentacle tentacle-left-1">🐙</div>
-  <div class="kraken-tentacle tentacle-left-2">🦑</div>
-  <div class="kraken-tentacle tentacle-right-1">🐙</div>
-  <div class="kraken-tentacle tentacle-right-2">🦑</div>
+  <!-- Tentakel Kraken Raksasa (Responsive & Scaled) -->
+  <div class="kraken-tentacle tentacle-left-1 fixed -bottom-4 left-1 sm:left-4 pointer-events-none -z-10 text-5xl sm:text-7xl md:text-9xl opacity-30 sm:opacity-50">🐙</div>
+  <div class="kraken-tentacle tentacle-left-2 fixed top-1/3 -left-4 pointer-events-none -z-10 text-4xl sm:text-6xl md:text-8xl opacity-25 sm:opacity-40">🦑</div>
+  <div class="kraken-tentacle tentacle-right-1 fixed -bottom-4 right-1 sm:right-4 pointer-events-none -z-10 text-5xl sm:text-7xl md:text-9xl opacity-30 sm:opacity-50">🐙</div>
+  <div class="kraken-tentacle tentacle-right-2 fixed top-1/4 -right-4 pointer-events-none -z-10 text-4xl sm:text-6xl md:text-8xl opacity-25 sm:opacity-40">🦑</div>
 
   <!-- Koin Emas Melayang (Treasure Particles) -->
-  <div class="floating-coin coin-1">🪙</div>
-  <div class="floating-coin coin-2">💎</div>
-  <div class="floating-coin coin-3">🪙</div>
-  <div class="floating-coin coin-4">👑</div>
+  <div class="floating-coin coin-1 fixed top-1/4 left-[15%] pointer-events-none -z-10 text-xl sm:text-3xl opacity-40 sm:opacity-80">🪙</div>
+  <div class="floating-coin coin-2 fixed top-2/3 left-[10%] pointer-events-none -z-10 text-xl sm:text-3xl opacity-40 sm:opacity-80">💎</div>
+  <div class="floating-coin coin-3 fixed top-1/3 right-[12%] pointer-events-none -z-10 text-xl sm:text-3xl opacity-40 sm:opacity-80">🪙</div>
+  <div class="floating-coin coin-4 fixed top-3/4 right-[15%] pointer-events-none -z-10 text-xl sm:text-3xl opacity-40 sm:opacity-80">👑</div>
 
-  <!-- Navbar Gaya Game Bajak Laut -->
-  <nav class="navbar">
-    <div class="nav-brand">
-      <span class="skull-badge">☠️</span>
-      <span class="brand-text">Curriculum Vitae <span> ZAHRA</span></span>
-    </div>
-    
-    <!-- Status Game Kapten (UI Game) -->
-    <div class="game-status-bar">
-      <div class="status-item">
-        <span class="status-icon">❤️</span>
-        <div class="bar-bg"><div class="bar-fill hp-bar"></div></div>
+  <!-- ================= NAVBAR PIRATE GAME ================= -->
+  <header class="sticky top-0 z-50 bg-gradient-to-b from-[#3a1e12] to-[#211008] border-b-4 border-pirate-gold shadow-2xl backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-2.5 sm:gap-4">
+      
+      <!-- Brand & Mobile Menu Button -->
+      <div class="w-full md:w-auto flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2 sm:gap-3 group focus:outline-none">
+          <span class="text-lg sm:text-2xl bg-ruby-red px-2 py-1 rounded-md border-2 border-pirate-gold shadow-sm group-hover:scale-105 transition-transform">☠️</span>
+          <span class="font-pirate text-xl sm:text-2xl text-white tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            Curriculum Vitae <span class="text-pirate-gold font-bold">ZAHRA</span>
+          </span>
+        </a>
+
+        <!-- Mobile Nav Toggle -->
+        <button id="mobileMenuBtn" aria-label="Buka Menu Navigasi" class="md:hidden text-pirate-gold bg-wood-dark border-2 border-pirate-gold rounded-lg px-2.5 py-1 text-sm font-pirate hover:bg-ruby-red transition-colors">
+          ☰ MENU
+        </button>
       </div>
-      <div class="status-item">
-        <span class="status-icon">⚡</span>
-        <div class="bar-bg"><div class="bar-fill mp-bar"></div></div>
+
+      <!-- Status Bar UI Kapten (HP / MP / LVL) -->
+      <div class="hidden sm:flex items-center gap-3 bg-black/60 px-3.5 py-1.5 rounded-full border-2 border-pirate-gold shadow-inner text-xs sm:text-sm">
+        <div class="flex items-center gap-1.5">
+          <span class="text-xs">❤️</span>
+          <div class="w-14 sm:w-16 h-2.5 bg-[#1a1a1a] rounded-full overflow-hidden border border-pirate-gold">
+            <div class="h-full w-[90%] bg-gradient-to-r from-red-500 to-red-700 animate-pulse"></div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-xs">⚡</span>
+          <div class="w-14 sm:w-16 h-2.5 bg-[#1a1a1a] rounded-full overflow-hidden border border-pirate-gold">
+            <div class="h-full w-[80%] bg-gradient-to-r from-sky-400 to-blue-600 animate-pulse"></div>
+          </div>
+        </div>
+        <div class="bg-pirate-gold text-wood-dark font-pirate text-xs sm:text-sm px-2 py-0.5 rounded font-bold tracking-wide">
+          LVL 99
+        </div>
       </div>
-      <div class="level-badge">LVL 99</div>
-    </div>
 
-    <ul class="nav-links">
-      <li><a href="#about">📜 KISAH KAPTEEN</a></li>
-      <li><a href="#skills">⚔️ SENJATA</a></li>
-      <li><a href="#contact">🍾 PESAN BOTOL</a></li>
-    </ul>
-  </nav>
+      <!-- Nav Links -->
+      <nav id="navMenu" class="w-full md:w-auto hidden md:block">
+        <ul class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 lg:gap-4 font-pirate text-sm sm:text-base lg:text-lg">
+          <li>
+            <a href="#about" class="block text-parchment hover:text-pirate-gold px-2.5 py-1 rounded transition-all hover:bg-black/30">📜 KISAH</a>
+          </li>
+          <li>
+            <a href="#skills" class="block text-parchment hover:text-pirate-gold px-2.5 py-1 rounded transition-all hover:bg-black/30">⚔️ SENJATA</a>
+          </li>
+          <li>
+            <a href="#education" class="block text-parchment hover:text-pirate-gold px-2.5 py-1 rounded transition-all hover:bg-black/30">🎓 PENDIDIKAN</a>
+          </li>
+          <li>
+            <a href="#organization" class="block text-parchment hover:text-pirate-gold px-2.5 py-1 rounded transition-all hover:bg-black/30">⚓ ORGANISASI</a>
+          </li>
+          <li>
+            <a href="#achievements" class="block text-parchment hover:text-pirate-gold px-2.5 py-1 rounded transition-all hover:bg-black/30">🏆 PRESTASI</a>
+          </li>
+          <li>
+            <a href="#contact" class="block text-pirate-gold bg-ruby-red/80 border border-pirate-gold hover:bg-ruby-red px-3 py-1 rounded shadow transition-all">🍾 PESAN</a>
+          </li>
+        </ul>
+      </nav>
 
-  <!-- Hero Banner Logo 3D ala Game "Micro Pirates & Kraken" -->
-  <header class="game-hero">
-    <div class="logo-box">
-      <div class="badge-skull">☠️</div>
-      <h1 class="hero-title">KAPTEN ZAHRA</h1>
-      <div class="hero-subtitle">AND THE KRAKEN OF THE CARIBBEAN</div>
-      <div class="crossed-swords">⚔️ 🏴‍☠️ ⚔️</div>
     </div>
   </header>
 
-  <!-- Layout Utama -->
-  <div class="layout-wrapper">
-    
-    <!-- Sidebar Profil Kapten -->
-    <aside class="profile-sidebar">
-      <div class="ship-wheel-icon">☸️</div>
-      <div class="avatar-wrapper">
-        <img src="assets/css/profil.jpeg" class="avatar-img">
-        <span class="status-badge">⚓ KAPTEN LAUT CARIBBEAN</span>
+  <!-- ================= HERO POSTER GAME 3D ================= -->
+  <section class="game-hero max-w-5xl mx-auto px-4 pt-8 pb-4 text-center">
+    <div class="logo-box inline-block w-full max-w-2xl bg-gradient-to-br from-[#8b1e1e] to-[#3d0909] border-[4px] sm:border-[5px] border-pirate-gold outline outline-4 outline-[#210a0a] rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-[0_15px_35px_rgba(0,0,0,0.9),inset_0_0_20px_rgba(255,215,0,0.4)] transform md:perspective-500 hover:scale-[1.01] transition-transform">
+      <div class="text-3xl sm:text-5xl mb-1 filter drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">☠️</div>
+      <h1 class="font-cinzel text-2xl sm:text-4xl md:text-5xl font-black text-pirate-gold tracking-widest drop-shadow-[2px_2px_0px_#000] drop-shadow-[-2px_-2px_0px_#000] drop-shadow-[0_0_15px_var(--gold-glow)] break-words">
+        KAPTEN ZAHRA
+      </h1>
+      <div class="mt-2 inline-block bg-[#211008] border-2 border-pirate-gold text-white font-pirate text-sm sm:text-lg md:text-xl px-4 py-1 rounded-xl tracking-wider max-w-full">
+        AND THE KRAKEN OF THE CARIBBEAN
       </div>
-      <h2 class="profile-name">AZZAHRA ZAHIRAH MASPRIANA</h2>
-      <p class="profile-title">Penjelajah Samudra & Pengembang Digital</p>
+      <div class="text-lg sm:text-2xl mt-2 tracking-widest">⚔️ 🏴‍☠️ ⚔️</div>
+    </div>
+  </section>
 
-      <!-- Hiasan Senjata Bajak Laut -->
-      <div class="pirate-equipment">
-        <span title="Topi Tricorn">🎩</span>
-        <span title="Pedang Cutlass">⚔️</span>
-        <span title="Pistol Flintlock">🔫</span>
-        <span title="Kait Besi">🪝</span>
-        <span title="Teleskop">🔭</span>
-      </div>
-
-      <div class="wood-divider"></div>
-
-      <div class="contact-quick">
-        <p>🗺️ <strong>EMAIL : </strong>Azzaharamaspriana@gmail.com</p>
-        <p>🏴‍☠️ <strong>No Hp : </strong>08888888888</p>
-        <p>🦜 <strong>Instagram</strong>@zxrraraz</p>
-      </div>
-
-      <div class="treasure-chest-box">
-        <span class="chest-icon">💎🪙🏴‍☠️</span>
-        <p>PETI HARTA KARUN TERKUNCI</p>
-      </div>
-    </aside>
-
-    <!-- Area Konten Utama -->
-    <main class="content-area">
+  <!-- ================= MAIN LAYOUT (SIDEBAR & CONTENT) ================= -->
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 lg:gap-8 items-start">
       
-      <!-- Section Kisah Kapten -->
-      <section id="about" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
+      <!-- ================= SIDEBAR PROFIL KAPTEN ================= -->
+      <aside class="w-full max-w-md mx-auto lg:max-w-none lg:sticky lg:top-24 bg-gradient-to-b from-[#ebd1a0] to-[#d1af73] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-4 sm:p-6 text-center shadow-pirate-card">
         
-        <div class="section-header">
-          <span class="icon-title">📜</span>
-          <h2>KISAH SANG KAPTEN</h2>
+        <div class="ship-wheel-icon text-3xl sm:text-4xl mb-2 text-wood-dark">☸️</div>
+        
+        <!-- Foto Avatar -->
+        <div class="relative inline-block my-2">
+          <img src="assets/css/profil.jpeg" alt="Foto Profil Azzahra Zahirah Maspriana" class="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover mx-auto border-4 border-wood-dark shadow-[0_0_20px_rgba(255,215,0,0.6)]">
+          <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-ruby-red text-white font-pirate text-xs sm:text-sm px-3 py-1 rounded-md border-2 border-pirate-gold whitespace-nowrap shadow-md">
+            ⚓ KAPTEN CARIBBEAN
+          </span>
         </div>
-        <p class="about-text">
-          "Ahoi, Pelaut! Akulah Kapten Azzahra Zahirah Maspriana, penguasa perairan Surabaya dan penjelajah samudra digital dari benteng PENS! Berlayar menerjang badai algoritma, menundukkan Kraken bug, demi menguasai harta karun inovasi teknologi!"
+
+        <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide mt-4">
+          AZZAHRA ZAHIRAH MASPRIANA
+        </h2>
+        <p class="text-xs sm:text-sm font-extrabold text-ruby-red tracking-wide mt-0.5">
+          Penjelajah Samudra & Pengembang Digital
         </p>
-      </section>
 
-      <!-- Section Senjata & Amunisi -->
-      <section id="skills" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
-
-        <div class="section-header">
-          <span class="icon-title">🦜</span>
-          <h2>SENJATA & AMUNISI</h2>
+        <!-- Senjata Perlengkapan -->
+        <div class="flex items-center justify-center gap-2 sm:gap-3 text-lg sm:text-xl my-4 bg-black/10 py-2 px-3 rounded-xl border border-wood-dark/20">
+          <span title="Topi Tricorn" class="hover:scale-125 transition-transform cursor-pointer">🎩</span>
+          <span title="Pedang Cutlass" class="hover:scale-125 transition-transform cursor-pointer">⚔️</span>
+          <span title="Pistol Flintlock" class="hover:scale-125 transition-transform cursor-pointer">🔫</span>
+          <span title="Kait Besi" class="hover:scale-125 transition-transform cursor-pointer">🪝</span>
+          <span title="Teleskop" class="hover:scale-125 transition-transform cursor-pointer">🔭</span>
         </div>
-        <div class="skills-wrapper">
-          <span class="skill-pill">⚓ EDITING VIDEO</span>
-          <span class="skill-pill">⚔️ KONTEN KREATOR</span>
-          <span class="skill-pill">💣 REPORTER</span>
-        </div>
-      </section>
 
-         <!-- Section Senjata & Amunisi -->
-      <section id="skills" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
+        <div class="h-1 bg-gradient-to-r from-transparent via-wood-dark to-transparent my-4"></div>
 
-        <div class="section-header">
-          <span class="icon-title">🦜</span>
-          <h2>RIWAYAT PENDIDIKAN</h2>
+        <!-- Info Kontak Singkat -->
+        <div class="text-left text-xs sm:text-sm font-bold text-wood-dark space-y-2 bg-parchment/60 p-3 rounded-xl border border-parchment-border/40">
+          <p class="flex items-start gap-2">
+            <span>🗺️</span>
+            <span class="break-all"><strong>Email:</strong> Azzaharamaspriana@gmail.com</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span>🏴‍☠️</span>
+            <span><strong>No HP:</strong> 08888888888</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span>🦜</span>
+            <span><strong>Instagram:</strong> @zxrraraz</span>
+          </p>
         </div>
-        <div class="skills-wrapper">
-          <span class="skill-pill">⚔️ SMP NEGERI 1 Surabaya 2019 - 2021</span>
-          <span class="skill-pill">⚓ SMA NEGERI 7 Surabaya 2022 - 2025</span>
-          <span class="skill-pill">💣 D4 Teknologi Rekayasa Multimedia PENS 2025 - 2029</span>
-        </div>
-      </section>
 
-        <section id="skills" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
-
-       <div class="section-header">
-          <span class="icon-title">🦜</span>
-          <h2>PENGALAMAN ORGANISASI</h2>
+        <!-- Peti Harta Karun -->
+        <div class="mt-4 bg-wood-dark text-pirate-gold p-3 rounded-xl border-2 border-pirate-gold shadow-inner">
+          <span class="text-2xl block animate-bounce">💎🪙🏴‍☠️</span>
+          <p class="font-pirate text-sm tracking-wider mt-1">PETI HARTA KARUN TERKUNCI</p>
         </div>
-        <div class="skills-wrapper">
-          <span class="skill-pill">⚔️ PDD OSIS SMAN 7 SURABAYA</span>
-          <span class="skill-pill">⚓ ANGGOTA PASKIBRA SMAN 7 SURABAYA</span>
-          <span class="skill-pill">💣 PANITIA UJIAN PRAKTIK SMAN 7 SURABAYA</span>
-          <span class="skill-pill">💣 PANITIA REMBUK BELAJAR</span>
-          <span class="skill-pill">💣 ANGGOTA DANCER SMAN 7 SURABAYA</span>
-          <span class="skill-pill">💣 PANITIA P5 KURIKULUM MERDEKA SMAN 7 SURABAYA</span>
-          <span class="skill-pill">💣 REPORTER ENT PENS 2026</span>
-          <span class="skill-pill">💣 ANGGOTA PENSMATE</span>
-          <span class="skill-pill">💣 ASLAB 2025</span>
-          <span class="skill-pill">💣 PANITIA PKKMB X TECHNOGEAR LO</span>
-          <span class="skill-pill">💣 KARANG TARUNA SIDOYOSO</span>
-          <span class="skill-pill">💣 PANITIA REMBUK BELAJAR</span>
-          <span class="skill-pill">💣 PANITIA APNAGAMA 2022</span>
-        </div>
-      </section>
+      </aside>
 
-             <section id="skills" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
-
-       <div class="section-header">
-          <span class="icon-title">🦜</span>
-          <h2>PENGALAMAN LOMBA</h2>
-        </div>
-        <div class="skills-wrapper">
-          <span class="skill-pill">⚔️ LOMBA VIDEO KREATIF UCUPAN HUT RS ANUGERAH 21</span>
-          <span class="skill-pill">⚓ LOMBA VIDEO REELS PENSASI BERDAMPAK 2025</span>
-          <span class="skill-pill">💣 JUARA 2 LOMBA POSTER PUBLIC</span>
-          <span class="skill-pill">💣 PESERTA LOMBA INFOGRAFIS</span>
-          <span class="skill-pill">💣 PERAIH MENDALI EMAS OLIMPIADE BAHASA INDONESIA</span>
-        </div>
-      </section>
-
-      <!-- Section Form Pesan Botol -->
-      <section id="contact" class="pirate-card">
-        <div class="card-corner corner-tl"></div>
-        <div class="card-corner corner-tr"></div>
-        <div class="card-corner corner-bl"></div>
-        <div class="card-corner corner-br"></div>
-
-        <div class="section-header">
-          <span class="icon-title">🍾</span>
-          <h2>KIRIM PESAN DALAM BOTOL</h2>
-        </div>
-        <form class="pirate-form">
-          <div class="input-group">
-            <input type="text" placeholder="Nama Pelaut / Kapten" required>
+      <!-- ================= MAIN CONTENT CARDS ================= -->
+      <main class="w-full flex flex-col gap-6 sm:gap-8">
+        
+        <!-- Section Kisah Kapten -->
+        <section id="about" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+          
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">📜</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">KISAH SANG KAPTEN</h2>
           </div>
-          <div class="input-group">
-            <input type="email" placeholder="Alamat Burung Merpati / Email" required>
+          <p class="text-sm sm:text-base font-semibold text-text-dark leading-relaxed">
+            "Ahoi, Pelaut! Akulah Kapten Azzahra Zahirah Maspriana, penguasa perairan Surabaya dan penjelajah samudra digital dari benteng PENS! Berlayar menerjang badai algoritma, menundukkan Kraken bug, demi menguasai harta karun inovasi teknologi!"
+          </p>
+        </section>
+
+        <!-- Section Senjata & Amunisi (Skills) -->
+        <section id="skills" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">⚔️</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">SENJATA & AMUNISI</h2>
           </div>
-          <div class="input-group">
-            <textarea rows="4" placeholder="Tuliskan rahasia atau peta jarahan..." required></textarea>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-pill">⚓ EDITING VIDEO</span>
+            <span class="skill-pill">⚔️ KONTEN KREATOR</span>
+            <span class="skill-pill">💣 REPORTER</span>
           </div>
-          <button type="submit" class="submit-btn">💥 LUNCURKAN MERIAM PESAN</button>
-        </form>
-      </section>
-    </main>
+        </section>
+
+        <!-- Section Riwayat Pendidikan -->
+        <section id="education" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">🎓</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">RIWAYAT PENDIDIKAN</h2>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2.5">
+            <span class="skill-pill">⚔️ SMP Negeri 1 Surabaya (2019 - 2021)</span>
+            <span class="skill-pill">⚓ SMA Negeri 7 Surabaya (2022 - 2025)</span>
+            <span class="skill-pill">💣 D4 Teknologi Rekayasa Multimedia PENS (2025 - 2029)</span>
+          </div>
+        </section>
+
+        <!-- Section Pengalaman Organisasi -->
+        <section id="organization" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">⚓</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">PENGALAMAN ORGANISASI</h2>
+          </div>
+          <div class="flex flex-wrap gap-2 sm:gap-2.5">
+            <span class="skill-pill">⚔️ PDD OSIS SMAN 7 SURABAYA</span>
+            <span class="skill-pill">⚓ ANGGOTA PASKIBRA SMAN 7 SURABAYA</span>
+            <span class="skill-pill">💣 PANITIA UJIAN PRAKTIK SMAN 7 SURABAYA</span>
+            <span class="skill-pill">💣 PANITIA REMBUK BELAJAR</span>
+            <span class="skill-pill">💣 ANGGOTA DANCER SMAN 7 SURABAYA</span>
+            <span class="skill-pill">💣 PANITIA P5 KURIKULUM MERDEKA SMAN 7 SURABAYA</span>
+            <span class="skill-pill">💣 REPORTER ENT PENS 2026</span>
+            <span class="skill-pill">💣 ANGGOTA PENSMATE</span>
+            <span class="skill-pill">💣 ASLAB 2025</span>
+            <span class="skill-pill">💣 PANITIA PKKMB X TECHNOGEAR LO</span>
+            <span class="skill-pill">💣 KARANG TARUNA SIDOYOSO</span>
+            <span class="skill-pill">💣 PANITIA REMBUK BELAJAR</span>
+            <span class="skill-pill">💣 PANITIA APNAGAMA 2022</span>
+          </div>
+        </section>
+
+        <!-- Section Pengalaman Lomba -->
+        <section id="achievements" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">🏆</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">PENGALAMAN LOMBA & PRESTASI</h2>
+          </div>
+          <div class="flex flex-wrap gap-2 sm:gap-2.5">
+            <span class="skill-pill">⚔️ LOMBA VIDEO KREATIF UCAPAN HUT RS ANUGERAH 21</span>
+            <span class="skill-pill">⚓ LOMBA VIDEO REELS PENSASI BERDAMPAK 2025</span>
+            <span class="skill-pill">💣 JUARA 2 LOMBA POSTER PUBLIC</span>
+            <span class="skill-pill">💣 PESERTA LOMBA INFOGRAFIS</span>
+            <span class="skill-pill">💣 PERAIH MEDALI EMAS OLIMPIADE BAHASA INDONESIA</span>
+          </div>
+        </section>
+
+        <!-- Section Form Pesan Botol -->
+        <section id="contact" class="pirate-card relative bg-gradient-to-b from-[#f7ebcf] to-[#e2cca1] border-[4px] sm:border-[5px] border-wood-dark outline outline-2 outline-pirate-gold rounded-2xl p-5 sm:p-8 shadow-pirate-card scroll-mt-24">
+          <div class="card-corner corner-tl"></div>
+          <div class="card-corner corner-tr"></div>
+          <div class="card-corner corner-bl"></div>
+          <div class="card-corner corner-br"></div>
+
+          <div class="flex items-center gap-3 border-b-2 border-dashed border-parchment-border pb-3 mb-4">
+            <span class="text-2xl sm:text-3xl">🍾</span>
+            <h2 class="font-pirate text-2xl sm:text-3xl text-wood-dark tracking-wide">KIRIM PESAN DALAM BOTOL</h2>
+          </div>
+          
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('💥 Pesan telah diluncurkan ke laut lepas menuju Kapten Zahra!');">
+            <div>
+              <label class="block font-pirate text-base sm:text-lg text-wood-dark mb-1">Nama Pelaut / Kapten</label>
+              <input type="text" placeholder="Masukkan nama Anda..." required class="w-full bg-white/95 border-2 border-wood-dark rounded-lg p-3 text-wood-dark font-semibold text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-pirate-gold shadow-sm">
+            </div>
+            <div>
+              <label class="block font-pirate text-base sm:text-lg text-wood-dark mb-1">Alamat Burung Merpati / Email</label>
+              <input type="email" placeholder="nama@pelaut.com..." required class="w-full bg-white/95 border-2 border-wood-dark rounded-lg p-3 text-wood-dark font-semibold text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-pirate-gold shadow-sm">
+            </div>
+            <div>
+              <label class="block font-pirate text-base sm:text-lg text-wood-dark mb-1">Pesan Rahasia</label>
+              <textarea rows="4" placeholder="Tuliskan rahasia atau peta jarahan..." required class="w-full bg-white/95 border-2 border-wood-dark rounded-lg p-3 text-wood-dark font-semibold text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-pirate-gold shadow-sm resize-y"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-b from-[#b82323] to-[#780f0f] hover:from-[#d92b2b] hover:to-[#9e1b1b] text-pirate-gold border-2 border-pirate-gold p-3.5 sm:p-4 rounded-xl font-pirate text-lg sm:text-xl tracking-wider shadow-[0_5px_0_#3d0909] active:translate-y-1 active:shadow-none transition-all">
+              💥 LUNCURKAN MERIAM PESAN
+            </button>
+          </form>
+        </section>
+
+      </main>
+    </div>
   </div>
-  <!-- Tombol Audio Game -->
-    <button id="soundToggle" class="sound-toggle-btn">
-        🏴‍☠️ SOUND: ON
-    </button>
-    <script src="assets/css/script.js"></script>
+
+  <!-- Footer -->
+  <footer class="mt-12 py-6 border-t-2 border-pirate-gold/30 bg-wood-dark/70 text-center text-parchment font-pirate text-sm sm:text-base">
+    <p>© 2026 Kapten Azzahra Zahirah Maspriana • Berlayar Bersama PENS Menaklukkan Lautan Digital 🏴‍☠️</p>
+  </footer>
+
+  <!-- Floating Audio Sound Toggle Button -->
+  <button id="soundToggle" aria-label="Toggle Sound Effects" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-wood-dark text-pirate-gold border-2 border-pirate-gold px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full font-pirate text-sm sm:text-base shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+    <span>🔊</span>
+    <span id="soundLabel">SOUND: ON</span>
+  </button>
+
+  <!-- Interactive Scripts -->
+  <script src="assets/css/script.js"></script>
+  <script>
+    // Responsive Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+      });
+      // Close menu when clicking link on mobile
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            navMenu.classList.add('hidden');
+          }
+        });
+      });
+    }
+
+    // Sound toggle state & synthetic pirate click sound
+    let isSoundOn = true;
+    const soundToggle = document.getElementById('soundToggle');
+    const soundLabel = document.getElementById('soundLabel');
+    
+    // Web Audio synthesizer for click sound (Zero external audio file dependency)
+    function playPirateClick() {
+      if (!isSoundOn) return;
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.08);
+      } catch (e) {}
+    }
+
+    if (soundToggle && soundLabel) {
+      soundToggle.addEventListener('click', () => {
+        isSoundOn = !isSoundOn;
+        if (isSoundOn) {
+          soundToggle.innerHTML = '<span>🔊</span><span id="soundLabel">SOUND: ON</span>';
+          soundToggle.style.opacity = '1';
+          playPirateClick();
+        } else {
+          soundToggle.innerHTML = '<span>🔇</span><span id="soundLabel">SOUND: OFF</span>';
+          soundToggle.style.opacity = '0.6';
+        }
+      });
+    }
+
+    // Click sound effect for interactive buttons & pills
+    document.querySelectorAll('.skill-pill, button, nav a').forEach(el => {
+      el.addEventListener('click', () => {
+        playPirateClick();
+      });
+    });
+  </script>
 </body>
 </html>
